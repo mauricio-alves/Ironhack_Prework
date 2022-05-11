@@ -17,7 +17,9 @@ function printEvens(ironCities) {
       result.push(ironCities[i]);
     }
   }
-  console.log(result);
+  for (i = 0; i <= result.length - 1; i++) {
+    console.log(result[i]);
+  }
 }
 
 printEvens(ironCities);

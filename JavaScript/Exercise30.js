@@ -13,7 +13,7 @@ sum(prices);
 const greeting = ["hello"];
 
 function stringToLetters(greeting) {
-  var message = greeting[0].split("");
+  let message = greeting[0].split("");
   console.log(message);
 }
 

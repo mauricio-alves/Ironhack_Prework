@@ -10,58 +10,20 @@ const matrix = [
   ],
 ];
 
-matrix.forEach(elem => {
-  console.log(`The element ${elem} is of type: ${typeof elem}.`);
-});
-
-
-for (let key in matrix) {
-  console.log(key);
+function sortProducts(matrix) {
+  let sortedMatrix = { tech: [], food: [] };
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix.length; j++) {
+      if (matrix[i][j].category === "tech") {
+        sortedMatrix.tech.unshift(matrix[i][j]);
+        sortedMatrix.tech.sort((a, b) => (a.category > b.category ? -1 : 1));
+      } else {
+        sortedMatrix.food.push(matrix[i][j]);
+        sortedMatrix.tech.sort((a, b) => (a.category > b.category ? 1 : -1));
+      }
+    }
+  }
+  return console.log(sortedMatrix);
 }
-console.log('tech' in matrix);
 
-// let sortedMatrix = value.map((v, i) => {
-//   return { i, value: someSlowOperation(v) };
-// });
-
-// sortedMatrix.sort((a, b) => {
-//   if (a.value > b.value) {
-//     return 1;
-//   }
-//   if (a.value < b.value) {
-//     return -1;
-//   }
-//   return 0;
-// });
-
-// const result = sortedMatrix.map(v => matrix[v.i]);
-
-// function sortProducts(matrix) {
-//   // let productsCategory = `The product: ${matrix[0][0].product} is category: ${matrix[0][0].category}`;
-//   // console.log(productsCategory);
-//   let sortedMatrix = [];
-//   for (i = 0; i <= matrix.length; i++) {
-//     if (matrix[0][0].category === "tech") {
-//       sortedMatrix.push(matrix[0][0]);
-//     }
-//   }
-//   console.log(sortedMatrix);
-// }
-
-// matrix.sort(function (a, b) {
-//   return a.value - b.value;
-// });
-
-// sortProducts(matrix);
-
-// function sortProducts(a, b) {
-//   if (a.category < b.category) {
-//     return -1;
-//   }
-//   if (a.category > b.category) {
-//     return 1;
-//   }
-//   return 0;
-// }
-
-// console.log(matrix.sort(sortProducts));
+sortProducts(matrix);
